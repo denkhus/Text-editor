@@ -1,0 +1,13 @@
+<div class="header">
+  <h1>
+    {{document()?.name}}
+  </h1>
+  <div class="actions">
+    <div class="zoom">
+      {{currentZoom()}}%
+      <button (click)="zoomInHandler()">+</button>
+      <button (click)="zoomOutHandler()">-</button>
+    </div>
+    <button (click)="saveHandler()">Сохранить</button>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="viewer" (dblclick)="addAnnotation($event)">
+  @for (page of document()?.pages; track page.number) {
+    <div *ngFor="let page of document()?.pages">
+    <img [style]="{zoom: currentZoom() + '%'}" [src]="page.imageUrl" alt="">
+  </div>
+  }
+
+  @for (annotation of document()?.annotations; track addAnnotation.name) {
+  <app-annotation-viewer cdkDrag cdkDragBoundary=".viewer" (remove)="onRemove($event)"
+    (cdkDragEnded)="dragEnded($event, annotation)" [annotation]="annotation">
+  </app-annotation-viewer>
+  }
+  @if(editAnnotation()) {
+    <app-annotation-editor (save)="saveAnnotationHandler($event)"
+    (cancel)="cancelEditAnnotationHandler()" [annotation]="editAnnotation()!"></app-annotation-editor>
+  }
+</div>

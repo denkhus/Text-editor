@@ -1,0 +1,14 @@
+:host {
+  display: block;
+  max-height: calc(100vh - 43px);
+  overflow: auto;
+}
+
+.viewer {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}

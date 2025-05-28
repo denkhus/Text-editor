@@ -1,0 +1,9 @@
+<div class="annotation">
+  <div class="header">
+    <img (click)="onRemove(annotation())" class="remove" src="Remove.svg">
+  </div>
+  @if(annotation()?.image) {
+  <img [src]="annotation()?.image" alt="">
+  {{annotation()?.text}}
+  }
+</div>

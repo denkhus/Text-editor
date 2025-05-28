@@ -1,0 +1,10 @@
+<ng-container *ngIf="document()">
+  <ng-container *ngIf="currentZoom()">
+     <app-header (zoom)="zoomHandler($event)" [currentZoom]="currentZoom()" (save)="saveHandler()"
+      [document]="document()"></app-header>
+    <app-document-viewer [document]="document()" [currentZoom]="currentZoom()"
+      (removeAnnotation)="onRemove($event)"
+      (saveAnnotation)="saveAnnotationHandler($event)">
+    </app-document-viewer>
+  </ng-container>
+</ng-container>

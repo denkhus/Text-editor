@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+  --bg_primary: #c4c4c4;
+  --bg_header: #548c86;
+  --color_white: #fff;
+  --bg-annotation: #e6cf40;
+}
+
+body {
+  background-color: var(--bg_primary);
+  height: 100vh;
+  overflow: hidden;
+}
