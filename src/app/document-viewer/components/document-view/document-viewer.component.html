@@ -11,7 +11,7 @@
   </app-annotation-viewer>
   }
   @if(editAnnotation()) {
-    <app-annotation-editor (save)="saveAnnotationHandler($event)"
+    <app-annotation-editor [position]="editAnnotation()!" (save)="saveAnnotationHandler($event)"
     (cancel)="cancelEditAnnotationHandler()" [annotation]="editAnnotation()!"></app-annotation-editor>
   }
 </div>

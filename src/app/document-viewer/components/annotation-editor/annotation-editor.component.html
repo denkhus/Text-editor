@@ -1,6 +1,6 @@
 <div class="annotation" (click)="$event.stopPropagation()">
   <img [src]="imageUrl()">
-  <input type="file" (change)="imageUploadHandler($event)">
+  <input type="file" (change)="onUpload($event)">
   <textarea autofocus [(ngModel)]="text"></textarea>
   <div class="buttons">
     <button (click)="saveHandler($event)">Сохранить</button>

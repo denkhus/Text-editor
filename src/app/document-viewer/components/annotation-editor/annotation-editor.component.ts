@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, Output, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, input, Input, Output, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Annotation } from '../../models/document';
@@ -14,22 +14,10 @@ import { Annotation } from '../../models/document';
 export class AnnotationEditorComponent {
   @Output() cancel = new EventEmitter();
   @Output() save = new EventEmitter<Annotation>();
-  @Input({ required: true, alias: 'annotation' })
-  set setAnnotation(annotation: Annotation) {
-    this.elRef.nativeElement.style.top = `${annotation.coords.top}px`;
-    this.elRef.nativeElement.style.left = `${annotation.coords.left}px`;
-    this.annotation = annotation;
-  }
-
   public imageUrl = signal<string | undefined>(undefined);
   public text = '';
 
-  private annotation: Annotation | undefined = undefined;
-
-  constructor(
-    private elRef: ElementRef<HTMLDivElement>,
-  ) {
-  }
+  public annotation = input<Annotation | undefined>(undefined);
 
   public cancelHandler(e: MouseEvent) {
     e.stopPropagation();
@@ -39,13 +27,13 @@ export class AnnotationEditorComponent {
   public saveHandler(mouseEvent: MouseEvent) {
     mouseEvent.stopPropagation();
     this.save.emit({
-      ...this.annotation!,
+      ...this.annotation()!,
       image: this.imageUrl(),
       text: this.text
     });
   }
 
-  public imageUploadHandler(event: Event) {
+  public onUpload(event: Event): void {
     let reader = new FileReader();
     const target = event.target as HTMLInputElement;
     if (target?.files && target.files.length > 0) {

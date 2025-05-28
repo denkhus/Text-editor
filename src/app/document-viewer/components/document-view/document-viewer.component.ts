@@ -5,11 +5,12 @@ import { Annotation } from '../../models/document';
 import { AnnotationViewComponent } from '../annotation-view/annotation-view.component';
 import { AnnotationEditorComponent } from '../annotation-editor/annotation-editor.component';
 import { Document } from '../../models/document';
+import { PositionDirective } from '../../directives/position.directive';
 
 @Component({
   selector: 'app-document-viewer',
   standalone: true,
-  imports: [CdkDrag, CommonModule, AnnotationViewComponent, AnnotationEditorComponent],
+  imports: [CdkDrag, CommonModule, AnnotationViewComponent, AnnotationEditorComponent, PositionDirective],
   templateUrl: './document-viewer.component.html',
   styleUrl: './document-viewer.component.scss',
   providers: [DragDropModule],
